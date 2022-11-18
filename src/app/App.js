@@ -13,7 +13,12 @@ const Global = createGlobalStyle`
 
 function App() {
     const elements = useRoutes(routes);
-    return <Global>{elements}</Global>;
+    return (
+        <>
+            <Global />
+            {elements}
+        </>
+    );
 }
 
 export default App;
