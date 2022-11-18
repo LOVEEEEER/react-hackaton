@@ -1,3 +1,4 @@
+import React from "react";
 import { useRoutes } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import routes from "./routes";
@@ -11,8 +12,8 @@ const Global = createGlobalStyle`
 `;
 
 function App() {
-  const elements = useRoutes(routes);
-  return <Global>{elements}</Global>;
+    const elements = useRoutes(routes);
+    return <Global>{elements}</Global>;
 }
 
 export default App;
