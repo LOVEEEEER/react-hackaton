@@ -25,14 +25,16 @@ const usersSlice = createSlice({
 });
 
 const { reducer: usersReducer, actions } = usersSlice;
-const { requested, received } = actions;
+const { requested, received, requestFailed } = actions;
 
 export const loadUsers = () => async (dispatch) => {
     dispatch(requested());
     try {
         const { content } = await usersService.fetchAll();
         dispatch(received(content));
-    } catch (error) {}
+    } catch (error) {
+        dispatch(requestFailed(error.message));
+    }
 };
 
 export const getUserById = (id) => (state) => {
