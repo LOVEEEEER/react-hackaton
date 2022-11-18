@@ -1,6 +1,6 @@
 import httpService from "./http.service";
 
-const usersEndPoint = "users/";
+const usersEndPoint = "user/";
 
 const usersService = {
     fetchAll: async () => {
