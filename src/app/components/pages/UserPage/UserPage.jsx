@@ -44,10 +44,12 @@ const UserPage = () => {
                     <h2 className={styles.user__projects_title}>
                         Проекты участника
                     </h2>
-                    <ImageSlider
-                        className={styles.user__image_slider}
-                        items={user.projects}
-                    />
+                    {user.projects && (
+                        <ImageSlider
+                            className={styles.user__image_slider}
+                            items={user.projects}
+                        />
+                    )}
                 </div>
             </main>
         );
