@@ -1,19 +1,26 @@
 .main {
-	color: rgb(255, 255, 255);
-	&__top {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #000000;
+	&__top {	
+		position: relative;	
 		text-align: center;
 		margin-bottom: 15px;
+		padding-bottom: 40px;
+		margin-bottom: 70px;
 	}
 	&__title {
+		margin-bottom: 20px;
+		margin-bottom: 40px;
 		font-size: 44px;
 		font-weight: 600;
-		margin-bottom: 20px;
 	}
 	&__text {
 		margin-bottom: 15px;
-		max-width: 600px;
 		margin: 0 auto;
-		line-height: 1.5;
+		max-width: 600px;
+		font-size: 20px;
+		line-height: 40px;
 	}
 	&__columns {
 		display: grid;
@@ -23,4 +30,13 @@
 			grid-template-columns: 1fr;
 		}
 	}
-}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		&_title {
+			margin-bottom: 40px;
+			font-size: 28px;
+		}
+	}
+	}

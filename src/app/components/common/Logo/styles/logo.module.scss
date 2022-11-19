@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  &_image {
+    margin-right: 15px;
+		width: 25px;
+  }
+  &_text_block {
+    color: #FFFFFF;
+		font-weight: 700;
+		font-size: 20px;
+  }
+  &_text_additional {
+    color: #61DAFB;
+  }
+}

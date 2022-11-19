@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
+import Logo from "../Logo";
 
 const NavBar = () => {
     const navLinks = [
@@ -14,7 +15,7 @@ const NavBar = () => {
     return (
         <header className={styles.header}>
             <div className={styles.header__container}>
-                <h1 className={styles.header__title}>React Hackaton</h1>
+                <Logo />
                 <nav className={styles.header__nav}>
                     <ul className={styles.header__nav_list}>
                         {navLinks.map((link) => (

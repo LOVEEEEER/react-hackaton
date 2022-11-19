@@ -1,4 +1,5 @@
 import React from "react";
+import Divider from "../../common/Divider";
 import UsersList from "../../ui/users/UsersList";
 import styles from "./styles/main-page.module.scss";
 
@@ -6,16 +7,22 @@ const MainPage = () => {
     return (
         <main className={styles.main}>
             <div className={styles.main__top}>
-                <div className={styles.main__title}>Наша команда</div>
+                <div className={styles.main__title}>О команде</div>
                 <div className={styles.main__text}>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Voluptatum iure debitis sint dolore cupiditate voluptas
-                    totam veritatis! Voluptates commodi, nobis consequatur
-                    placeat doloremque laborum praesentium, eveniet deserunt
-                    odio in quae.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eveniet corrupti dolor porro at ut eligendi ab fugiat
+                    corporis architecto qui exercitationem totam eos tenetur,
+                    laudantium dolores dolorem numquam ullam pariatur.
+                    <Divider />
                 </div>
             </div>
+
             <div className={styles.main__content}>
+                <div className={styles.main__content_title}>
+                    Наши разработчики
+                </div>
                 <UsersList />
             </div>
         </main>
