@@ -47,4 +47,8 @@ export const getUserById = (id) => (state) => {
         : null;
 };
 
+export const getUsersLoading = () => (state) => {
+    return state.users.isLoading;
+};
+
 export default usersReducer;

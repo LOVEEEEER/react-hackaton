@@ -1,19 +1,19 @@
 import React from "react";
-import Navbar from "../components/common/NavBar/NavBar";
-import MainPage from "../components/pages/MainPage";
+import { Outlet } from "react-router-dom";
 import Container from "../components/common/Container";
 import Footer from "../components/common/Footer";
+import NavBar from "../components/common/NavBar";
 
-const Main = () => {
+const Users = () => {
     return (
         <>
-            <Navbar />
+            <NavBar />
             <Container>
-                <MainPage />
+                <Outlet />
             </Container>
             <Footer />
         </>
     );
 };
 
-export default Main;
+export default Users;
