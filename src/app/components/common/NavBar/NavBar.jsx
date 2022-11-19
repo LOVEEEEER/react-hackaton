@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
 import Logo from "../Logo";
+import burgerMenuIcon from "../../../assets/svg/menu.svg";
+import PhoneMenu from "../../ui/PhoneMenu/PhoneMenu";
 
 const NavBar = () => {
+    const [openMenu, setOpen] = useState(false);
     const navLinks = [
         { path: "/", name: "Команда", id: 1 },
         {
@@ -12,6 +15,9 @@ const NavBar = () => {
             id: 2
         }
     ];
+    const handleOpenMenu = () => {
+        setOpen((prevState) => !prevState);
+    };
     return (
         <header className={styles.header}>
             <div className={styles.header__container}>
@@ -32,8 +38,15 @@ const NavBar = () => {
                             </li>
                         ))}
                     </ul>
+                    <img
+                        src={burgerMenuIcon}
+                        alt="menu"
+                        className={styles.header__menu}
+                        onClick={handleOpenMenu}
+                    />
                 </nav>
             </div>
+            <PhoneMenu links={navLinks} open={openMenu} />
         </header>
     );
 };

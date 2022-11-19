@@ -1,3 +1,5 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
 .header {
 	background-color: #1E1D23;
 	&__container {
@@ -8,16 +10,11 @@
 		margin-left: auto;
 		padding-top: 35px;
 		padding-bottom: 35px;
-		width: 1500px;
+		max-width: 1500px;
 	}
-	// &__title {
-	// 	color: #FFE70B;
-	// 	font-weight: 700;
-	// 	font-size: 20px;
-	// 	line-height: 24px;
-	// }
 	&__nav_list {
 		display: flex;
+		@include phones{display: none}
 	}
 	&__nav_item {
 		&:not(:last-child) {
@@ -32,6 +29,12 @@
 		&:hover {
 			color: #FFE70B;
 		}
+	}
+	&__menu {
+		display: none;
+		width: 35px;
+		z-index: 150;
+		@include phones{display: block;}
 	}
 	&__head_block {
 		display: flex;
