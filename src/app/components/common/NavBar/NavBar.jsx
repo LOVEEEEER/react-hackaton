@@ -1,32 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
 
 const NavBar = () => {
+    const navLinks = [
+        { path: "/team", name: "Команда", id: 1 },
+        {
+            path: "/projects",
+            name: "Проекты",
+            id: 2
+        }
+    ];
     return (
-        <div className={styles.navbar}>
-            <div className={styles.navbar__container}>
-                <div className={styles.navbar__body}>
-                    <ul className={styles.navbar__list}>
-                        <li className={styles.navbar__item}>
-                            <Link to="/" className={styles.navbar__link}>
-                                Главная
-                            </Link>
-                        </li>
-                        <li className={styles.navbar__item}>
-                            <Link to="/" className={styles.navbar__link}>
-                                Ссылка 1
-                            </Link>
-                        </li>
-                        <li className={styles.navbar__item}>
-                            <Link to="/" className={styles.navbar__link}>
-                                Ссылка 2
-                            </Link>
-                        </li>
+        <header className={styles.header}>
+            <div className={styles.header__container}>
+                <h1 className={styles.header__title}>React Hackaton</h1>
+                <nav className={styles.header__nav}>
+                    <ul className={styles.header__nav_list}>
+                        {navLinks.map((link) => (
+                            <li
+                                key={link.id}
+                                className={styles.header__nav_item}
+                            >
+                                <NavLink
+                                    className={styles.header__nav_link}
+                                    to={link.path}
+                                >
+                                    {link.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
-                </div>
+                </nav>
             </div>
-        </div>
+        </header>
     );
 };
 
