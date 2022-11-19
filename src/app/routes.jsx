@@ -20,12 +20,12 @@ const routes = [
             {
                 path: ":userId",
                 element: <UserPage />
-            },
-            {
-                path: "*",
-                element: <Navigate to="/" />
             }
         ]
+    },
+    {
+        path: "*",
+        element: <Navigate to="/" />
     }
 ];
 
