@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./navbar.module.scss";
+import styles from "./styles/navbar.module.scss";
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <div className={styles.navbar}>
             <div className={styles.navbar__container}>
@@ -30,4 +30,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavBar;

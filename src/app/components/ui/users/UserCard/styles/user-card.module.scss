@@ -1,0 +1,22 @@
+.main {
+  &__user {
+    margin: 15px;
+  }
+  &__user {
+		padding: 15px;
+		backdrop-filter: blur(8px);
+		background-color: rgba(255, 255, 255, 0.3);
+		border-radius: 10px;
+		overflow: hidden;
+		color: inherit;
+		min-height: 250px;
+		text-decoration: none;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.7);
+			}
+		}
+		background-size: 100% 100%;
+	}
+}

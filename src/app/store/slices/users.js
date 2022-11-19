@@ -37,6 +37,10 @@ export const loadUsers = () => async (dispatch) => {
     }
 };
 
+export const getUsersList = () => (state) => {
+    return state.users.entities ? state.users.entities : null;
+};
+
 export const getUserById = (id) => (state) => {
     return state.users.entities
         ? state.users.entities.find((user) => user.id === id)
