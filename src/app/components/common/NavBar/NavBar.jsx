@@ -4,10 +4,10 @@ import styles from "./styles/navbar.module.scss";
 
 const NavBar = () => {
     const navLinks = [
-        { path: "/team", name: "Команда", id: 1 },
+        { path: "/", name: "Команда", id: 1 },
         {
-            path: "/projects",
-            name: "Проекты",
+            path: "/bookmark",
+            name: "Избранное",
             id: 2
         }
     ];
