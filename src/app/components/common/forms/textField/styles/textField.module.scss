@@ -1,0 +1,86 @@
+.textField {
+	width: 100%;
+	position: relative;
+	&__label {
+		position: absolute;
+		z-index: 1;
+		padding: 0 10px;
+		top: 0;
+		left: 0;
+		font-size: 20px;
+		transform: translate(10px, 30%);
+		transition: all 0.3s ease 0s;
+		opacity: 0.4;
+		cursor: text;
+	}
+
+	&__input {
+		position: relative;
+		width: 100%;
+		background-color: transparent;
+		border: 1px solid rgb(114, 114, 114);
+		border-radius: 5px;
+		font-size: 20px;
+		padding: 5px 10px;
+		cursor: text;
+		&.is-invalid {
+			border: 1px solid red;
+		}
+	}
+
+	%iconPassword {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translate(-40%, -50%);
+		width: 25px;
+		height: 25px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__passButton {
+		@extend %iconPassword;
+		&_show {
+			@extend %iconPassword;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				top: 50%;
+				left: 0;
+				transform: rotate(-45deg);
+				background-color: #000;
+			}
+		}
+	}
+	&__error {
+		position: absolute;
+		bottom: -15px;
+		left: 0;
+		color: red;
+		margin-left: 10px;
+		font-size: 12px;
+	}
+	&__button {
+		background-color: rgb(106, 66, 168);
+	}
+}
+
+.textField__input:focus ~ .textField__label,
+.textField__input:not(:placeholder-shown).textField__input:not(:focus) ~ .textField__label {
+	font-size: 12px;
+	transform: translate(10px, -50%);
+	background-color: #d2d2e3;
+	z-index: 1;
+	opacity: 1;
+	border: 1px solid rgb(151, 151, 151);
+	border-radius: 4px;
+	line-height: 1.1;
+	&.is-invalid {
+		border: 1px solid red;
+	}
+}
