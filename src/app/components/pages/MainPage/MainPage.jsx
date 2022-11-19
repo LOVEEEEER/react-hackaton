@@ -6,7 +6,7 @@ const MainPage = () => {
     return (
         <main className={styles.main}>
             <div className={styles.main__top}>
-                <div className={styles.main__title}>Наша команда</div>
+                <div className={styles.main__title}>О команде</div>
                 <div className={styles.main__text}>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Voluptatum iure debitis sint dolore cupiditate voluptas
@@ -16,6 +16,9 @@ const MainPage = () => {
                 </div>
             </div>
             <div className={styles.main__content}>
+                <div className={styles.main__content_title}>
+                    Наши разработчики
+                </div>
                 <UsersList />
             </div>
         </main>
