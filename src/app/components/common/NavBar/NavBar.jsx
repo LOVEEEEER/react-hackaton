@@ -4,6 +4,7 @@ import styles from "./styles/navbar.module.scss";
 import Logo from "../Logo";
 // import burgerMenuIcon from "../../../assets/svg/menu.svg";
 import PhoneMenu from "../../ui/PhoneMenu/PhoneMenu";
+import Container from "../Container/Container";
 
 const NavBar = () => {
     const [openMenu, setOpen] = useState(false);
@@ -20,39 +21,41 @@ const NavBar = () => {
     };
     return (
         <header className={styles.header}>
-            <div className={styles.header__container}>
-                <Logo />
-                <nav className={styles.header__nav}>
-                    <ul className={styles.header__nav_list}>
-                        {navLinks.map((link) => (
-                            <li
-                                key={link.id}
-                                className={styles.header__nav_item}
-                            >
-                                <NavLink
-                                    className={styles.header__nav_link}
-                                    to={link.path}
+            <Container>
+                <div className={styles.header__container}>
+                    <Logo />
+                    <nav className={styles.header__nav}>
+                        <ul className={styles.header__nav_list}>
+                            {navLinks.map((link) => (
+                                <li
+                                    key={link.id}
+                                    className={styles.header__nav_item}
                                 >
-                                    {link.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                    <input
-                        id="menu__toggle"
-                        className={styles.header__menu_toggle}
-                        type="checkbox"
-                        onClick={handleOpenMenu}
-                    />
-                    <label
-                        className={styles.header__menu_button}
-                        htmlFor="menu__toggle"
-                    >
-                        <span></span>
-                    </label>
-                </nav>
-            </div>
-            <PhoneMenu links={navLinks} open={openMenu} />
+                                    <NavLink
+                                        className={styles.header__nav_link}
+                                        to={link.path}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                        <input
+                            id="menu__toggle"
+                            className={styles.header__menu_toggle}
+                            type="checkbox"
+                            onClick={handleOpenMenu}
+                        />
+                        <label
+                            className={styles.header__menu_button}
+                            htmlFor="menu__toggle"
+                        >
+                            <span></span>
+                        </label>
+                    </nav>
+                </div>
+                <PhoneMenu links={navLinks} open={openMenu} />
+            </Container>
         </header>
     );
 };
