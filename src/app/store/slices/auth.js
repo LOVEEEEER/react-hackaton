@@ -39,6 +39,7 @@ const authSlice = createSlice({
         },
         authRequestSuccess(state, action) {
             state.userId = action.payload;
+            state.isLoggedIn = true;
         },
         authSignUpRequestFailed(state, action) {
             state.signUpError = action.payload;
@@ -144,6 +145,10 @@ export const getCurrentUser = () => (state) => {
     return state.auth.entities
         ? state.auth.entities.find((user) => user.id === state.auth.userId)
         : null;
+};
+
+export const getUserById = (id) => (state) => {
+    return state.auth.entities.find((user) => user.id === id);
 };
 
 export const getAuthSignUpError = () => (state) => state.auth.signUpError;
