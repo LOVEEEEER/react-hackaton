@@ -8,6 +8,7 @@ import { getCurrentUser, logout } from "../../../store/slices/auth";
 import Avatar from "../Avatar";
 import Button from "../Button";
 import Container from "../Container";
+import logoutIcon from "../../../assets/svg/logout.svg";
 
 const NavBar = () => {
     const [openMenu, setOpen] = useState(false);
@@ -61,7 +62,11 @@ const NavBar = () => {
                         )}
                         <div className={styles.header__logButton}>
                             <Button onClick={handleButton}>
-                                {currentUser ? "Выход" : "Вход"}
+                                {!currentUser ? (
+                                    "Вход"
+                                ) : (
+                                    <img src={logoutIcon} alt="logout" />
+                                )}
                             </Button>
                         </div>
                         <div className={styles.header__iconMenu}>
