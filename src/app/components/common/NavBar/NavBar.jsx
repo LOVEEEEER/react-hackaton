@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
 import Logo from "../Logo";
+import Container from "../Container";
 
 const NavBar = () => {
     const navLinks = [
@@ -14,26 +15,28 @@ const NavBar = () => {
     ];
     return (
         <header className={styles.header}>
-            <div className={styles.header__container}>
-                <Logo />
-                <nav className={styles.header__nav}>
-                    <ul className={styles.header__nav_list}>
-                        {navLinks.map((link) => (
-                            <li
-                                key={link.id}
-                                className={styles.header__nav_item}
-                            >
-                                <NavLink
-                                    className={styles.header__nav_link}
-                                    to={link.path}
+            <Container>
+                <div className={styles.header__body}>
+                    <Logo />
+                    <nav className={styles.header__nav}>
+                        <ul className={styles.header__nav_list}>
+                            {navLinks.map((link) => (
+                                <li
+                                    key={link.id}
+                                    className={styles.header__nav_item}
                                 >
-                                    {link.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
+                                    <NavLink
+                                        className={styles.header__nav_link}
+                                        to={link.path}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
+            </Container>
         </header>
     );
 };
