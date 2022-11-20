@@ -6,7 +6,6 @@ const AboutIcon = ({ handleClick }) => {
         <button onClick={handleClick}>
             <About
                 style={{
-                    fill: "#eee",
                     width: "40px",
                     height: "40px",
                     cursor: "pointer"

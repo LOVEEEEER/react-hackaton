@@ -27,7 +27,7 @@ const DeveloperCard = ({ name, id, image, age, description }) => {
                     {description}
                 </div>
                 <div className={styles.card__content__buttons}>
-                    <FavouriteIcon />
+                    <FavouriteIcon id={id} />
                     <AboutIcon handleClick={handleClickAboutButton} />
                 </div>
             </div>

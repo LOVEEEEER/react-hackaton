@@ -38,6 +38,7 @@ const authSlice = createSlice({
         },
         authRequestSuccess(state, action) {
             state.userId = action.payload;
+            state.isLoggedIn = true;
         },
         authSignUpRequestFailed(state, action) {
             state.signUpError = action.payload;
@@ -121,6 +122,7 @@ export const getCurrentUser = () => (state) => {
         ? state.auth.entities.find((user) => user.id === state.auth.userId)
         : null;
 };
+export const getAuthUserId = () => (state) => state.auth.userId;
 export const getIsLoading = () => (state) => state.auth.isLoading;
 export const getIsLoggedIn = () => (state) => state.auth.isLoggedIn;
 export default authReducer;
