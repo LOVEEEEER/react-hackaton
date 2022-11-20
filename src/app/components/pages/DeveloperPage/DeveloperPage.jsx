@@ -1,18 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getIsLoggedIn } from "../../../store/slices/auth";
 import { getDeveloperById } from "../../../store/slices/developers";
 import { getQualitiesListById } from "../../../store/slices/qualities";
 import Badge from "../../common/Badge/Badge";
 import ImageSlider from "../../common/ImageSlider";
 import ProgressBar from "../../common/ProgressBar/ProgressBar";
 import ReviewsForm from "../../ui/forms/ReviewsForm";
+import ReviewsList from "../../ui/reviews/ReviewsList";
 import SocialNetworksList from "../../ui/SocialNetworksList";
 import styles from "./styles/developer-page.module.scss";
 
 const DeveloperPage = () => {
     const { developerId } = useParams();
     const developer = useSelector(getDeveloperById(developerId));
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const qualities = useSelector(getQualitiesListById(developer.qualities));
     if (developer && qualities) {
         return (
@@ -77,7 +80,10 @@ const DeveloperPage = () => {
                 >
                     Мнение о пользователе
                 </h2>
-                <ReviewsForm />
+                <div className={styles.developer__reviews}>
+                    <ReviewsList />
+                </div>
+                {isLoggedIn && <ReviewsForm />}
             </main>
         );
     }

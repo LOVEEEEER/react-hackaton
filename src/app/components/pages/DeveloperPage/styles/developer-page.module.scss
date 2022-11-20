@@ -93,12 +93,10 @@
 		object-fit: cover;
 		box-shadow: 4px 49px 8px 0px rgba(34, 60, 80, 0.2);
 	}
-	// &__reviews_title {
-	// 	margin-top: 40px;
-	// 	font-size: 35px;
-	// 	font-weight: 600;
-	// }
 	&__reviews_title {
 		margin-top: 75px;
+	}
+	&__reviews {
+		margin-bottom: 40px;
 	}
 }
