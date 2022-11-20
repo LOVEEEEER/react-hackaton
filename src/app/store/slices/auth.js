@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import authService from "../../services/auth.service";
 import localStorageService from "../../services/localStorage.service";
 import usersService from "../../services/users.service";
+import { generateAuthError } from "../../utils/generateAuthError";
 
 const initialState = localStorageService.getAccessToken()
     ? {
@@ -50,6 +51,10 @@ const authSlice = createSlice({
                 state.entities = [];
             }
             state.entities.push(action.payload);
+        },
+        userLoggedOut(state) {
+            state.isLoggedIn = false;
+            state.userId = null;
         }
     }
 });
@@ -62,7 +67,8 @@ const {
     authRequestSuccess,
     authSignUpRequestFailed,
     authSignInRequestFailed,
-    userCreated
+    userCreated,
+    userLoggedOut
 } = actions;
 
 export const loadUsers = () => async (dispatch) => {
@@ -93,7 +99,8 @@ export const signUp = (data, redirect) => async (dispatch) => {
         dispatch(createUser(newUser));
         redirect("/", { replace: true });
     } catch (error) {
-        dispatch(authSignUpRequestFailed(error.message));
+        const errorMessage = errorCatcher(error);
+        dispatch(authSignUpRequestFailed(errorMessage));
     }
 };
 
@@ -104,8 +111,25 @@ export const signIn = (data, redirect) => async (dispatch) => {
         dispatch(authRequestSuccess(content.localId));
         redirect("/", { replace: true });
     } catch (error) {
-        dispatch(authSignInRequestFailed(error.message));
+        const errorMessage = errorCatcher(error);
+        dispatch(authSignInRequestFailed(errorMessage));
     }
+};
+
+export const logout = () => (dispatch) => {
+    localStorageService.removeUserData();
+    dispatch(userLoggedOut());
+};
+
+const errorCatcher = (error) => {
+    let errorMessage;
+    const { code, message } = error.response.data.error;
+    if (code === 400) {
+        errorMessage = generateAuthError(message);
+    } else {
+        errorMessage = error.message;
+    }
+    return errorMessage;
 };
 
 function createUser(data) {
@@ -121,6 +145,9 @@ export const getCurrentUser = () => (state) => {
         ? state.auth.entities.find((user) => user.id === state.auth.userId)
         : null;
 };
+
+export const getAuthSignUpError = () => (state) => state.auth.signUpError;
+export const getAuthSignInError = () => (state) => state.auth.signInError;
 export const getIsLoading = () => (state) => state.auth.isLoading;
 export const getIsLoggedIn = () => (state) => state.auth.isLoggedIn;
 export default authReducer;
