@@ -44,7 +44,7 @@ const Review = ({ review }) => {
 
             <p className={styles.review__description}>
                 {getReviewText(review.text)}{" "}
-                {!openFullText && review.text.length > 34 && (
+                {!openFullText && review.text.length > 35 && (
                     <span
                         className={styles.review__full_description}
                         onClick={handleToggleFullText}
