@@ -33,6 +33,10 @@
 		&:hover {
 			color: #ffe70b;
 		}
+		&_active {
+			padding-bottom: 6px;
+			border-bottom: 3px solid #ffe70b;
+		}
 	}
 	&__menu {
 		display: none;
