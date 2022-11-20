@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import Login from "./components/pages/loginPage/login";
 import UserPage from "./components/pages/UserPage";
 import Main from "./layouts/Main";
 import Users from "./layouts/Users";
@@ -26,6 +27,10 @@ const routes = [
     {
         path: "*",
         element: <Navigate to="/" />
+    },
+    {
+        path: "login",
+        element: <Login />
     }
 ];
 
