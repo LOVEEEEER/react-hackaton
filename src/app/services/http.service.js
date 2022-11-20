@@ -1,21 +1,38 @@
 import axios from "axios";
 import config from "../config.json";
+import authService from "./auth.service";
+import localStorageService from "./localStorage.service";
 
 axios.defaults.baseURL = config.defaultsUrl;
 
 axios.interceptors.request.use(
-    function (response) {
+    async function (response) {
         if (config.isFireBase) {
             const containSlash = /\/$/g.test(response.url);
             response.url =
                 (containSlash ? response.url.slice(0, -1) : response.url) +
                 ".json";
+            const expiresDate = localStorageService.getJwtExpires();
+            const refreshToken = localStorageService.getRefreshToken();
+            if (refreshToken && Date.now() > expiresDate) {
+                const data = await authService.refresh();
+                localStorageService.setTokens({
+                    refreshToken: data.refresh_token,
+                    idToken: data.id_token,
+                    expiresIn: data.expires_in,
+                    localId: data.user_id
+                });
+                const accessToken = localStorageService.getAccessToken();
+                if (accessToken) {
+                    config.params = { ...config.params, auth: accessToken };
+                }
+            }
             return response;
         }
         return response;
     },
     function (error) {
-        Promise.reject(error);
+        return Promise.reject(error);
     }
 );
 

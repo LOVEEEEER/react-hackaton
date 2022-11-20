@@ -15,7 +15,6 @@ const FavouriteIcon = ({ id }) => {
     const userId = useSelector(getAuthUserId());
     const dispatch = useDispatch();
     const currentFavouriteId = useSelector(getCurrentUserFavourite(id))?.id;
-    console.log(currentFavouriteId);
     const currentFavouriteBool = !!currentFavouriteId;
     const [isFavourite, setIsFavourite] = useState(currentFavouriteBool);
 
