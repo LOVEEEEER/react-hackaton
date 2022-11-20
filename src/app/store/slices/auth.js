@@ -146,6 +146,7 @@ export const getCurrentUser = () => (state) => {
         ? state.auth.entities.find((user) => user.id === state.auth.userId)
         : null;
 };
+export const getAuthUserId = () => (state) => state.auth.userId;
 
 export const getUserById = (id) => (state) => {
     return state.auth.entities.find((user) => user.id === id);
