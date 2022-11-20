@@ -1,9 +1,15 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import Login from "./components/pages/loginPage/login";
-import UserPage from "./components/pages/UserPage";
+import SignUpPage from "./components/pages/login/SignUpPage";
+import DeveloperPage from "./components/pages/DeveloperPage";
+import withStyledFormPage from "./components/ui/hoc/withStyledFormPage/withStyledFormPage";
+import Login from "./layouts/Login";
 import Main from "./layouts/Main";
-import Users from "./layouts/Users";
+import Developers from "./layouts/Developers";
+import SignInPage from "./components/pages/login/SignInPage";
+
+const StyledSignUpPage = withStyledFormPage(SignUpPage);
+const StyledSignInPage = withStyledFormPage(SignInPage);
 
 const routes = [
     {
@@ -11,16 +17,16 @@ const routes = [
         element: <Main />
     },
     {
-        path: "users",
-        element: <Users />,
+        path: "developers",
+        element: <Developers />,
         children: [
             {
                 path: "",
                 element: <Navigate to="/" />
             },
             {
-                path: ":userId",
-                element: <UserPage />
+                path: ":developerId",
+                element: <DeveloperPage />
             }
         ]
     },
@@ -30,7 +36,21 @@ const routes = [
     },
     {
         path: "login",
-        element: <Login />
+        element: <Login />,
+        children: [
+            {
+                path: "",
+                element: <Navigate to="/" />
+            },
+            {
+                path: "signup",
+                element: <StyledSignUpPage />
+            },
+            {
+                path: "signin",
+                element: <StyledSignInPage />
+            }
+        ]
     }
 ];
 
