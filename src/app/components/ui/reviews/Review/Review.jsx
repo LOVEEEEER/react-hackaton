@@ -23,7 +23,7 @@ const Review = ({ review }) => {
                 <span className={styles.review__date}>
                     {displayDate(review.created_at)}
                 </span>
-                {currentUser.id === authorComment.id && (
+                {currentUser && currentUser.id === authorComment.id && (
                     <img
                         className={styles.review__delete}
                         src={deleteIcon}

@@ -3,6 +3,9 @@
 .logo {
 	display: flex;
 	align-items: center;
+	&:hover {
+		cursor: pointer;
+	}
 	&_image {
 		margin-right: 15px;
 		width: 25px;

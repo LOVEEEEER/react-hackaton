@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getIsLoggedIn } from "../../../store/slices/auth";
 import { getDeveloperById } from "../../../store/slices/developers";
 import { getQualitiesListById } from "../../../store/slices/qualities";
@@ -44,13 +44,19 @@ const DeveloperPage = () => {
                     </div>
                     <div className={styles.developer__info}>
                         <h3 className={styles.developer__info_title}>
-                            About me
+                            Возраст
+                        </h3>
+                        <p className={styles.developer__description}>
+                            {developer.age}
+                        </p>
+                        <h3 className={styles.developer__info_title}>
+                            Описание
                         </h3>
                         <p className={styles.developer__description}>
                             {developer.description}
                         </p>
                         <h3 className={styles.developer__info_title}>
-                            Project work
+                            Работал в проекте
                         </h3>
                         <p className={styles.developer__description}>
                             {developer.workedOn}
@@ -78,12 +84,24 @@ const DeveloperPage = () => {
                 <h2
                     className={`${styles.developer__projects_title} ${styles.developer__reviews_title}`}
                 >
-                    Мнение о пользователе
+                    Мнение о разработчике
                 </h2>
                 <div className={styles.developer__reviews}>
                     <ReviewsList />
                 </div>
-                {isLoggedIn && <ReviewsForm />}
+                {isLoggedIn ? (
+                    <ReviewsForm />
+                ) : (
+                    <div>
+                        Чтобы оставлять отзывы необходимо{" "}
+                        <Link
+                            to="/login/signin"
+                            className={styles.developer__helper_text}
+                        >
+                            войти в аккаунт
+                        </Link>
+                    </div>
+                )}
             </main>
         );
     }
