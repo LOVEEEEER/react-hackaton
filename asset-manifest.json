@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-hackaton/static/css/main.616aff31.css",
+    "main.js": "/react-hackaton/static/js/main.91094b21.js",
+    "static/media/react.svg": "/react-hackaton/static/media/react.1520bd67b9711ed91ace46b169bc2491.svg",
+    "static/media/filled-heart.svg": "/react-hackaton/static/media/filled-heart.b72c1e78a8d197002fbb059cfbf66d60.svg",
+    "static/media/about.svg": "/react-hackaton/static/media/about.a2f19ac0f6cf84a14af8894360e9b071.svg",
+    "static/media/instagram.svg": "/react-hackaton/static/media/instagram.512b3c19fe642deba4470e769a5c7e19.svg",
+    "static/media/logout.svg": "/react-hackaton/static/media/logout.99083442e2a7606b5d58d7c9d83917aa.svg",
+    "static/media/telegram.svg": "/react-hackaton/static/media/telegram.b820897813fc40f87343d91f6efadf93.svg",
+    "static/media/heart.svg": "/react-hackaton/static/media/heart.a5d2519d4e5ec639e9ca66e92e24040d.svg",
+    "static/media/github.svg": "/react-hackaton/static/media/github.7c2b277031fc9aeb24c033ff9332c319.svg",
+    "index.html": "/react-hackaton/index.html",
+    "static/media/delete.svg": "/react-hackaton/static/media/delete.2a19b1318e591a788498b36600571b71.svg",
+    "static/media/vk.svg": "/react-hackaton/static/media/vk.50e0bf712ae74e5e7f087b1d021ba169.svg",
+    "main.616aff31.css.map": "/react-hackaton/static/css/main.616aff31.css.map",
+    "main.91094b21.js.map": "/react-hackaton/static/js/main.91094b21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.616aff31.css",
+    "static/js/main.91094b21.js"
+  ]
+}
