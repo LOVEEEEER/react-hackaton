@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-// import buttonImg from "../../../img/icons/button-icon.svg";
 import passwordIcon from "../../../../assets/svg/showPassword.png";
-import styles from "./styles/textField.module.scss";
+import styles from "./styles/text-field.module.scss";
 
 const TextField = ({
     label,
@@ -19,12 +18,6 @@ const TextField = ({
     const handleChange = ({ target }) => {
         onChange({ name: target.name, value: target.value });
     };
-    //  const getInputClasses = () => {
-    //      return "text-field__input" + (error ? " is-invalid" : "");
-    //  };
-    //  const getLabelClasses = () => {
-    //      return "text-field__label" + (error ? " is-invalid" : "");
-    //  };
     const getPassButtonClasses = () => {
         if (!showPassword) {
             return styles.textField__passButton;
