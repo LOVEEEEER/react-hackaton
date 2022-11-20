@@ -1,0 +1,38 @@
+.review {
+  padding: 23px;
+  overflow: hidden;
+  background-color: rgb(174, 165, 252);
+  border-radius: 20px;
+  &_user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  &__description {
+    display: block;
+    width: 300px;
+    word-wrap: break-word;
+    line-height: 20px;
+  }
+  &__author {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  &__date {
+    font-size: 15px;
+  }
+  &__delete {
+    margin-left: auto;
+    width: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__full_description {
+    color: rgb(185, 82, 100);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

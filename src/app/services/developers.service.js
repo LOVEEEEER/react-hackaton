@@ -5,7 +5,6 @@ const developersEndPoint = "developer/";
 const developersService = {
     fetchAll: async () => {
         const { data } = await httpService.get(developersEndPoint);
-        console.log(data.content);
         return data;
     },
     getDeveloperById: async (developerId) => {

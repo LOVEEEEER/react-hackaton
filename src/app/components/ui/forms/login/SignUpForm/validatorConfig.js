@@ -9,7 +9,7 @@ export const validatorConfig = {
             message: "Поле 'E-mail' обязательно для заполнения"
         },
         isEmail: {
-            message: "Поле 'E-mail' введено некоректноы"
+            message: "Поле 'E-mail' введено некоректно"
         }
     },
     password: {

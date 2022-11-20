@@ -28,7 +28,6 @@ export const validator = (data, config) => {
                 validateMethod,
                 config[fieldName][validateMethod]
             );
-            console.log(error);
             if (!errors[fieldName] && error) {
                 errors[fieldName] = error;
             }

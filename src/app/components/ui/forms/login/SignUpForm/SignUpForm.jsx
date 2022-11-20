@@ -3,8 +3,8 @@ import useForm from "../../../../../hooks/useForm";
 import styles from "../styles/login-form.module.scss";
 import TextField from "../../../../common/forms/TextField";
 import { validatorConfig } from "./validatorConfig";
-import { signUp } from "../../../../../store/slices/auth";
-import { useDispatch } from "react-redux";
+import { getAuthSignUpError, signUp } from "../../../../../store/slices/auth";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +19,9 @@ const SignUpForm = () => {
         },
         validatorConfig
     );
+
+    const authError = useSelector(getAuthSignUpError());
+
     const isValid = Object.keys(errors).length === 0;
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -60,6 +63,7 @@ const SignUpForm = () => {
                     error={errors.password}
                 />
             </div>
+            {authError && <p className={styles.right__error}>{authError}</p>}
             <Button>Зарегистрироваться</Button>
         </form>
     );

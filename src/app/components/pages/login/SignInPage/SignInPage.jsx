@@ -13,14 +13,15 @@ const SignInPage = () => {
                         <Logo />
                     </div>
                     <div className={styles.left__title}>
-                        С составом команды вы можете ознакомиться на главной
-                        странице!
+                        Наша команда уже на главной странице!
                     </div>
                     <div className={styles.left__text}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Fuga, necessitatibus.
+                        Оцените наши труды и старания над этим проектом
                     </div>
-                    <div className={styles.left__card}>Контент карточки</div>
+                    <div className={styles.left__card}>
+                        «Цели никогда не должны быть простыми. Они должны быть
+                        неудобными, чтобы заставить вас работать» — Майкл Фелпс
+                    </div>
                 </div>
             </div>
             <div className={styles.right}>

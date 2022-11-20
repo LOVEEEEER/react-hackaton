@@ -13,7 +13,6 @@ const usersService = {
     },
     getUserById: async (userId) => {
         const { data } = await httpService.get(usersEndPoint + userId);
-        console.log(data, userId);
         return data;
     }
 };

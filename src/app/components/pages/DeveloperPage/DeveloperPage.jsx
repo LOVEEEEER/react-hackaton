@@ -1,15 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { getIsLoggedIn } from "../../../store/slices/auth";
 import { getDeveloperById } from "../../../store/slices/developers";
 import { getQualitiesListById } from "../../../store/slices/qualities";
 import Badge from "../../common/Badge/Badge";
 import ImageSlider from "../../common/ImageSlider";
+import ProgressBar from "../../common/ProgressBar/ProgressBar";
+import ReviewsForm from "../../ui/forms/ReviewsForm";
+import ReviewsList from "../../ui/reviews/ReviewsList";
+import SocialNetworksList from "../../ui/SocialNetworksList";
 import styles from "./styles/developer-page.module.scss";
 
 const DeveloperPage = () => {
     const { developerId } = useParams();
     const developer = useSelector(getDeveloperById(developerId));
+    const isLoggedIn = useSelector(getIsLoggedIn());
     const qualities = useSelector(getQualitiesListById(developer.qualities));
     if (developer && qualities) {
         return (
@@ -34,12 +40,34 @@ const DeveloperPage = () => {
                                 </li>
                             ))}
                         </ul>
+                        <SocialNetworksList items={developer.social} />
                     </div>
                     <div className={styles.developer__info}>
-                        <h3 className={styles.developer__info_title}>About</h3>
+                        <h3 className={styles.developer__info_title}>
+                            Возраст
+                        </h3>
+                        <p className={styles.developer__description}>
+                            {developer.age}
+                        </p>
+                        <h3 className={styles.developer__info_title}>
+                            Описание
+                        </h3>
                         <p className={styles.developer__description}>
                             {developer.description}
                         </p>
+                        <h3 className={styles.developer__info_title}>
+                            Работал в проекте
+                        </h3>
+                        <p className={styles.developer__description}>
+                            {developer.workedOn}
+                        </p>
+
+                        <ProgressBar progress={developer.react} text="React" />
+                        <ProgressBar
+                            progress={developer.javaScript}
+                            text="JavaScript"
+                        />
+                        <ProgressBar progress={developer.scss} text="SCSS" />
                     </div>
                 </div>
                 <div className={styles.developer__slider}>
@@ -53,6 +81,27 @@ const DeveloperPage = () => {
                         />
                     )}
                 </div>
+                <h2
+                    className={`${styles.developer__projects_title} ${styles.developer__reviews_title}`}
+                >
+                    Мнение о разработчике
+                </h2>
+                <div className={styles.developer__reviews}>
+                    <ReviewsList />
+                </div>
+                {isLoggedIn ? (
+                    <ReviewsForm />
+                ) : (
+                    <div>
+                        Чтобы оставлять отзывы необходимо{" "}
+                        <Link
+                            to="/login/signin"
+                            className={styles.developer__helper_text}
+                        >
+                            войти в аккаунт
+                        </Link>
+                    </div>
+                )}
             </main>
         );
     }

@@ -24,6 +24,7 @@ const useForm = (initialState, config) => {
         setErrors(errorsUser);
         return Object.keys(errors).length === 0;
     };
+
     const validateBySubmit = () => {
         const errors = validator(data, config);
         setErrors(errors);

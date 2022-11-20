@@ -16,10 +16,13 @@ const SignUpPage = () => {
                         Начните развиваться в IT вместе с нами!
                     </div>
                     <div className={styles.left__text}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Fuga, necessitatibus.
+                        Быть айтишником - это уметь решать жизненные задачи
+                        нестандартным путём
                     </div>
-                    <div className={styles.left__card}>Контент карточки</div>
+                    <div className={styles.left__card}>
+                        «Необходим новый тип мышления, если человечество хочет
+                        выжить и продвигаться в развитии» — Альберт Энштейн.
+                    </div>
                 </div>
             </div>
             <div className={styles.right}>
