@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./styles/review.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,11 +9,21 @@ import deleteIcon from "../../../../assets/svg/delete.svg";
 import { deleteComment } from "../../../../store/slices/comments";
 
 const Review = ({ review }) => {
+    const [openFullText, setOpenFullText] = useState(false);
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUser());
     const authorComment = useSelector(getUserById(review.userId));
     const handleDelete = () => {
         dispatch(deleteComment(review.id));
+    };
+    const getReviewText = (text) => {
+        if (!openFullText) {
+            return text.slice(0, 35);
+        }
+        return text;
+    };
+    const handleToggleFullText = () => {
+        setOpenFullText((prevState) => !prevState);
     };
     return (
         <li className={styles.review}>
@@ -33,7 +43,15 @@ const Review = ({ review }) => {
             </div>
 
             <p className={styles.review__description}>
-                {review.text.toString()}
+                {getReviewText(review.text)}{" "}
+                {!openFullText && review.text.length > 34 && (
+                    <span
+                        className={styles.review__full_description}
+                        onClick={handleToggleFullText}
+                    >
+                        открыть полностью
+                    </span>
+                )}
             </p>
         </li>
     );

@@ -12,6 +12,7 @@
     display: block;
     width: 300px;
     word-wrap: break-word;
+    line-height: 20px;
   }
   &__author {
     margin-left: 10px;
@@ -24,6 +25,12 @@
   &__delete {
     margin-left: auto;
     width: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__full_description {
+    color: rgb(185, 82, 100);
     &:hover {
       cursor: pointer;
     }
