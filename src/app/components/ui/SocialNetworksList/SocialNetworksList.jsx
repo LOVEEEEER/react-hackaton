@@ -39,8 +39,7 @@ const SocialNetworksList = ({ items }) => {
 };
 
 SocialNetworksList.propTypes = {
-    items: PropTypes.object.isRequired,
-    item: PropTypes.string.isRequired
+    items: PropTypes.object.isRequired
 };
 
 export default SocialNetworksList;

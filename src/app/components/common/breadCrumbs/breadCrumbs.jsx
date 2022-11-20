@@ -24,11 +24,11 @@ const BreadCrumbs = () => {
                             .join("/")}`;
                         const isLast = index === pathnames.length - 1;
                         return isLast ? (
-                            <Breadcrumb.Item>
+                            <Breadcrumb.Item key={index}>
                                 {capatilize(name)}
                             </Breadcrumb.Item>
                         ) : (
-                            <Breadcrumb.Item>
+                            <Breadcrumb.Item key={index}>
                                 <Link to={`${routeTo}`}>
                                     {capatilize(name)}
                                 </Link>

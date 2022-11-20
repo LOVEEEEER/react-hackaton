@@ -8,7 +8,6 @@ const Login = () => {
     return (
         <>
             <NavBar />
-
             <Container>
                 <BreadCrumbs />
                 <Outlet />

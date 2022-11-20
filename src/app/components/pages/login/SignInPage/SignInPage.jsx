@@ -13,8 +13,7 @@ const SignInPage = () => {
                         <Logo />
                     </div>
                     <div className={styles.left__title}>
-                        С составом команды вы можете ознакомиться на главной
-                        странице!
+                        Наша команда уже на главной странице!
                     </div>
                     <div className={styles.left__text}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.

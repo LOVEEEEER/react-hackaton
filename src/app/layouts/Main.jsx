@@ -9,7 +9,6 @@ const Main = () => {
     return (
         <>
             <Navbar />
-
             <Container>
                 <BreadCrumbs />
                 <MainPage />

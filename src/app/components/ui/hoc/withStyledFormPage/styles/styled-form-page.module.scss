@@ -1,13 +1,13 @@
 @import "../../../../../styles/mixins/response-mixin.scss";
 
 .login {
-	padding: 20px 0;
+	padding: 15px 0;
 	&__body {
 		background-color: rgba(255, 255, 255, 0.8);
 		border-radius: 20px;
 	}
 	&__content {
-		padding: 20px;
+		padding: 8px;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 		gap: 30px;
