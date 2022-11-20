@@ -1,0 +1,56 @@
+@import "../../../../styles/mixins/response-mixin.scss";
+
+.main {
+	padding: 50px 0px;
+	color: #000000;
+	@mixin phones {
+		padding: 30px 0;
+	}
+	&__top {
+		position: relative;
+		text-align: center;
+		padding-bottom: 40px;
+		margin-bottom: 70px;
+		@mixin phones {
+			margin-bottom: 40px;
+		}
+	}
+	&__title {
+		margin-bottom: 40px;
+		font-size: 44px;
+		font-weight: 600;
+		@mixin phones {
+			margin-bottom: 20px;
+		}
+	}
+	&__text {
+		margin: 0 auto;
+		max-width: 600px;
+		font-size: 20px;
+		line-height: 2;
+		@mixin phones {
+			line-height: 1.5;
+		}
+	}
+	&__columns {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 15px;
+		@mixin tablets {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		&_title {
+			margin-bottom: 40px;
+			font-size: 28px;
+			font-weight: 500;
+			@mixin phones {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

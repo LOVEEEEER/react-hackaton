@@ -1,0 +1,26 @@
+@import "../../../../../styles/mixins/response-mixin.scss";
+
+.right {
+	color: #000;
+	padding: 40px;
+	@include tablets {
+		padding: 0;
+	}
+	&__field {
+		margin-bottom: 30px;
+	}
+	&__error {
+		margin-bottom: 13px;
+		font-size: 12px;
+		color: red;
+	}
+}
+
+@keyframes highlight {
+	0% {
+		transform: translate(-60px) skew(-30deg);
+	}
+	100% {
+		transform: translate(130px) skew(-30deg);
+	}
+}

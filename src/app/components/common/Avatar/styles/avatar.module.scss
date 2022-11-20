@@ -1,0 +1,8 @@
+.card {
+  &__img {
+    border-radius: 50%;
+    float: left;
+    object-fit: cover;
+    object-position: center;
+  }
+}
