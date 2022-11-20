@@ -19,6 +19,7 @@
 	&__nav_list {
 		display: flex;
 		align-items: center;
+		margin-left: 45px;
 		@include phones{display: none}
 	}
 	&__nav_item {

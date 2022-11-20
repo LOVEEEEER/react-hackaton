@@ -1,6 +1,6 @@
 import React from "react";
 import Divider from "../../common/Divider";
-import UsersList from "../../ui/users/UsersList";
+import DevelopersList from "../../ui/developers/DevelopersList";
 import styles from "./styles/main-page.module.scss";
 
 const MainPage = () => {
@@ -23,7 +23,7 @@ const MainPage = () => {
                 <div className={styles.main__content_title}>
                     Наши разработчики
                 </div>
-                <UsersList />
+                <DevelopersList />
             </div>
         </main>
     );

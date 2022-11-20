@@ -50,7 +50,6 @@ const TextField = ({
             <label className={styles.textField__label} htmlFor={name}>
                 <p>{label}</p>
             </label>
-
             {type === "password" && (
                 <button
                     className={getPassButtonClasses()}

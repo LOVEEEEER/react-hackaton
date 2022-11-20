@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
 import Logo from "../Logo";
-// import burgerMenuIcon from "../../../assets/svg/menu.svg";
 import PhoneMenu from "../../ui/PhoneMenu/PhoneMenu";
+import { useSelector } from "react-redux";
+import { getCurrentUser } from "../../../store/slices/auth";
+import Avatar from "../Avatar";
+import Button from "../Button";
 
 const NavBar = () => {
     const [openMenu, setOpen] = useState(false);
+    const currentUser = useSelector(getCurrentUser());
+    const navigate = useNavigate();
+
     const navLinks = [
         { path: "/", name: "Команда", id: 1 },
         {
@@ -15,14 +21,16 @@ const NavBar = () => {
             id: 2
         }
     ];
+
     const handleOpenMenu = () => {
         setOpen((prevState) => !prevState);
     };
+
     return (
         <header className={styles.header}>
             <div className={styles.header__container}>
                 <Logo />
-                <nav className={styles.header__nav}>
+                <div className={styles.header__nav}>
                     <ul className={styles.header__nav_list}>
                         {navLinks.map((link) => (
                             <li
@@ -50,8 +58,16 @@ const NavBar = () => {
                     >
                         <span></span>
                     </label>
-                </nav>
+                </div>
+                {!currentUser ? (
+                    <Button onClick={() => navigate("/login/signin")}>
+                        Вход
+                    </Button>
+                ) : (
+                    <Avatar src={currentUser.image} size="45" />
+                )}
             </div>
+
             <PhoneMenu links={navLinks} open={openMenu} />
         </header>
     );

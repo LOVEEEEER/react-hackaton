@@ -1,11 +1,11 @@
-import users from "../mock/users.json";
+import developers from "../mock/developers.json";
 import httpService from "../services/http.service";
 
 const useMockData = () => {
     async function initialize() {
         try {
-            for (const user of users) {
-                await httpService.put("user/" + user.id, user);
+            for (const developer of developers) {
+                await httpService.put("developer/" + developer.id, developer);
             }
         } catch (error) {
             console.log(error);
