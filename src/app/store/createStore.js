@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     developers: developersReducer,
     qualities: qualitiesReducer,
     auth: authReducer,
-    favourites: favouritesReducer
+    favourites: favouritesReducer,
     comments: commentsReducer
 });
 

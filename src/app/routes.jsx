@@ -7,7 +7,7 @@ import Login from "./layouts/Login";
 import Main from "./layouts/Main";
 import Developers from "./layouts/Developers";
 import SignInPage from "./components/pages/login/SignInPage";
-import FavouritesList from "./components/ui/favourites/FavouriteList/FavouritesList";
+import Favourites from "./layouts/Favourites";
 
 const StyledSignUpPage = withStyledFormPage(SignUpPage);
 const StyledSignInPage = withStyledFormPage(SignInPage);
@@ -31,7 +31,7 @@ const routes = [
             }
         ]
     },
-    { path: "bookmark", element: <FavouritesList /> },
+    { path: "bookmark", element: <Favourites /> },
     {
         path: "*",
         element: <Navigate to="/" />

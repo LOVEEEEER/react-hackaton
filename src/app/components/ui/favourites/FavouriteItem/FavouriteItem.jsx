@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getDeveloperById } from "../../../../store/slices/developers";
@@ -46,6 +47,10 @@ const FavouriteItem = ({ devId }) => {
             </div>
         </div>
     );
+};
+
+FavouriteItem.propTypes = {
+    devId: PropTypes.string
 };
 
 export default FavouriteItem;
