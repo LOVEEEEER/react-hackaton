@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import FavouriteIcon from "../../icons/FavouriteIcon/FavouriteIcon";
 import AboutIcon from "../../icons/AboutIcon/AboutIcon";
 import { trueAgeWord } from "../../../../utils/trueAgeWord";
-import Avatar from "../../../common/Avatar/Avatar";
+// import Avatar from "../../../common/Avatar/Avatar";
 
 const DeveloperCard = ({ name, id, image, age, description }) => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const DeveloperCard = ({ name, id, image, age, description }) => {
     return (
         <div className={styles.card__container}>
             <div className={styles.card__img__container}>
-                <Avatar src={image} alt={name} />
+                <img src={image} alt={name} className={styles.card__img} />
             </div>
             <div className={styles.card__content}>
                 <div className={styles.card__content__name}>{name}</div>

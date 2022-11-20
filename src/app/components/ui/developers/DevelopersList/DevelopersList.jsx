@@ -9,9 +9,9 @@ const DevelopersList = () => {
     if (developers) {
         return (
             <ul className={styles.main__list}>
-                {developers.map((developer) => (
-                    <li key={developer.id} className={styles.main__item}>
-                        <DeveloperCard {...developer} />
+                {developers.map((developers) => (
+                    <li key={developers.id} className={styles.main__item}>
+                        <DeveloperCard {...developers} />
                     </li>
                 ))}
             </ul>

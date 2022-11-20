@@ -5,6 +5,8 @@ import { getDeveloperById } from "../../../store/slices/developers";
 import { getQualitiesListById } from "../../../store/slices/qualities";
 import Badge from "../../common/Badge/Badge";
 import ImageSlider from "../../common/ImageSlider";
+import ProgressBar from "../../common/ProgressBar/ProgressBar";
+import SocialNetworksList from "../../ui/SocialNetworksList";
 import styles from "./styles/developer-page.module.scss";
 
 const DeveloperPage = () => {
@@ -34,12 +36,19 @@ const DeveloperPage = () => {
                                 </li>
                             ))}
                         </ul>
+                        <SocialNetworksList items={developer.social} />
                     </div>
                     <div className={styles.developer__info}>
                         <h3 className={styles.developer__info_title}>About</h3>
                         <p className={styles.developer__description}>
                             {developer.description}
                         </p>
+                        <ProgressBar progress={developer.react} text="React" />
+                        <ProgressBar
+                            progress={developer.javaScript}
+                            text="JavaScript"
+                        />
+                        <ProgressBar progress={developer.scss} text="SCSS" />
                     </div>
                 </div>
                 <div className={styles.developer__slider}>
