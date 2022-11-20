@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles/navbar.module.scss";
 import Logo from "../Logo";
-import burgerMenuIcon from "../../../assets/svg/menu.svg";
+// import burgerMenuIcon from "../../../assets/svg/menu.svg";
 import PhoneMenu from "../../ui/PhoneMenu/PhoneMenu";
 
 const NavBar = () => {
@@ -38,12 +38,18 @@ const NavBar = () => {
                             </li>
                         ))}
                     </ul>
-                    <img
-                        src={burgerMenuIcon}
-                        alt="menu"
-                        className={styles.header__menu}
+                    <input
+                        id="menu__toggle"
+                        className={styles.header__menu_toggle}
+                        type="checkbox"
                         onClick={handleOpenMenu}
                     />
+                    <label
+                        className={styles.header__menu_button}
+                        htmlFor="menu__toggle"
+                    >
+                        <span></span>
+                    </label>
                 </nav>
             </div>
             <PhoneMenu links={navLinks} open={openMenu} />
