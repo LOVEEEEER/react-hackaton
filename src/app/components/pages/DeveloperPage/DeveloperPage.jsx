@@ -39,10 +39,19 @@ const DeveloperPage = () => {
                         <SocialNetworksList items={developer.social} />
                     </div>
                     <div className={styles.developer__info}>
-                        <h3 className={styles.developer__info_title}>About</h3>
+                        <h3 className={styles.developer__info_title}>
+                            About me
+                        </h3>
                         <p className={styles.developer__description}>
                             {developer.description}
                         </p>
+                        <h3 className={styles.developer__info_title}>
+                            Project work
+                        </h3>
+                        <p className={styles.developer__description}>
+                            {developer.workedOn}
+                        </p>
+
                         <ProgressBar progress={developer.react} text="React" />
                         <ProgressBar
                             progress={developer.javaScript}

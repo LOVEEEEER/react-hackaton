@@ -3,7 +3,7 @@ import Navbar from "../components/common/NavBar/NavBar";
 import MainPage from "../components/pages/MainPage";
 import Container from "../components/common/Container";
 import Footer from "../components/common/Footer";
-import BreadCrumb from "../components/common/breadCrumbs/breadCrumbs";
+import BreadCrumbs from "../components/common/BreadCrumbs";
 
 const Main = () => {
     return (
@@ -11,7 +11,7 @@ const Main = () => {
             <Navbar />
 
             <Container>
-                <BreadCrumb />
+                <BreadCrumbs />
                 <MainPage />
             </Container>
             <Footer />

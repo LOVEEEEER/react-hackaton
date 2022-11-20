@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Breadcrumb } from "antd";
 
-const BreadCrumb = () => {
+const BreadCrumbs = () => {
     const location = useLocation();
     const breadCrumbView = () => {
         const { pathname } = location;
@@ -43,4 +43,4 @@ const BreadCrumb = () => {
     return <>{breadCrumbView()}</>;
 };
 
-export default BreadCrumb;
+export default BreadCrumbs;

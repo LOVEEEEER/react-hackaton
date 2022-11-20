@@ -38,6 +38,11 @@
 			color: #FFE70B;
 		}
 	}
+	&__nav_link_active {
+		padding-bottom: 4px;
+		color: #FFE70B;
+		border-bottom: 2px solid #FFE70B;
+	}
 	&__menu {
 		display: none;
 		width: 35px;

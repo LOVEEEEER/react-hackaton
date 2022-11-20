@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import BreadCrumb from "../components/common/breadCrumbs/breadCrumbs";
+import BreadCrumbs from "../components/common/BreadCrumbs";
 import Container from "../components/common/Container";
 import Footer from "../components/common/Footer";
 import NavBar from "../components/common/NavBar";
@@ -10,7 +10,7 @@ const Developers = () => {
         <>
             <NavBar />
             <Container>
-                <BreadCrumb />
+                <BreadCrumbs />
                 <Outlet />
             </Container>
             <Footer />

@@ -38,7 +38,13 @@ const NavBar = () => {
                                 className={styles.header__nav_item}
                             >
                                 <NavLink
-                                    className={styles.header__nav_link}
+                                    className={({ isActive }) =>
+                                        `${styles.header__nav_link} ${
+                                            isActive
+                                                ? styles.header__nav_link_active
+                                                : ""
+                                        }`
+                                    }
                                     to={link.path}
                                 >
                                     {link.name}

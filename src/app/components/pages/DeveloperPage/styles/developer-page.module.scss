@@ -61,6 +61,9 @@
 		line-height: 25px;
 		font-weight: 400;
 		font-size: 20px;
+		&:not(:last-child) {
+			margin-bottom: 25px;
+		}
 	}
 	&__qualities_list {
 		display: flex;
