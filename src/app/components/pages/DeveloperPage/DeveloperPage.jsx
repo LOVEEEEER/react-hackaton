@@ -6,6 +6,7 @@ import { getQualitiesListById } from "../../../store/slices/qualities";
 import Badge from "../../common/Badge/Badge";
 import ImageSlider from "../../common/ImageSlider";
 import ProgressBar from "../../common/ProgressBar/ProgressBar";
+import ReviewsForm from "../../ui/forms/ReviewsForm";
 import SocialNetworksList from "../../ui/SocialNetworksList";
 import styles from "./styles/developer-page.module.scss";
 
@@ -71,6 +72,12 @@ const DeveloperPage = () => {
                         />
                     )}
                 </div>
+                <h2
+                    className={`${styles.developer__projects_title} ${styles.developer__reviews_title}`}
+                >
+                    Мнение о пользователе
+                </h2>
+                <ReviewsForm />
             </main>
         );
     }

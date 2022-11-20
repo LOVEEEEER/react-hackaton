@@ -15,14 +15,14 @@ const ImageSlider = ({ items, className, ...rest }) => {
                 mousewheel={true}
                 loop={true}
                 autoplay={{
-                    delay: 1000,
+                    delay: 2500,
                     disableOnInteraction: false
                 }}
                 {...rest}
             >
                 {items.map((item) => (
                     <SwiperSlide key={item} className={className}>
-                        <img src={item} alt="" className={className} />
+                        <img src={item} alt={item} className={className} />
                     </SwiperSlide>
                 ))}
             </Swiper>
