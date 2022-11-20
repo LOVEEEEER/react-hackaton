@@ -1,13 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles/review.module.scss";
-import { useSelector } from "react-redux";
-import { getUserById } from "../../../../store/slices/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser, getUserById } from "../../../../store/slices/auth";
 import Avatar from "../../../common/Avatar";
 import { displayDate } from "../../../../utils/dateService";
+import deleteIcon from "../../../../assets/svg/delete.svg";
+import { deleteComment } from "../../../../store/slices/comments";
 
 const Review = ({ review }) => {
+    const dispatch = useDispatch();
+    const currentUser = useSelector(getCurrentUser());
     const authorComment = useSelector(getUserById(review.userId));
+    const handleDelete = () => {
+        dispatch(deleteComment(review.id));
+    };
     return (
         <li className={styles.review}>
             <div className={styles.review_user}>
@@ -16,6 +23,13 @@ const Review = ({ review }) => {
                 <span className={styles.review__date}>
                     {displayDate(review.created_at)}
                 </span>
+                {currentUser.id === authorComment.id && (
+                    <img
+                        className={styles.review__delete}
+                        src={deleteIcon}
+                        onClick={handleDelete}
+                    />
+                )}
             </div>
 
             <p className={styles.review__description}>

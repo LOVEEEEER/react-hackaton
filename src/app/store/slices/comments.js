@@ -11,45 +11,54 @@ const commentsSlice = createSlice({
     name: "comments",
     initialState,
     reducers: {
-        commentsRequested(state, action) {
+        requested(state, action) {
             state.isLoading = true;
         },
-        commentsReceived(state, action) {
+        received(state, action) {
             state.entities = action.payload;
             state.isLoading = false;
         },
-        commentsLoadFailed(state, action) {
+        loadFailed(state, action) {
             state.error = action.payload;
             state.isLoading = false;
         },
-        commentCreatedRequestFailed(state, action) {
+        requestFailed(state, action) {
             state.error = action.payload;
         },
-        commentCreated(state, action) {
+        created(state, action) {
             if (!Array.isArray(state.entities)) {
                 state.entities = [];
             }
             state.entities.push(action.payload);
+        },
+        deleted(state, action) {
+            state.entities = state.entities.filter(
+                (comment) => comment.id !== action.payload
+            );
         }
     }
 });
 
 const { reducer: commentsReducer, actions } = commentsSlice;
-const {
-    commentsRequested,
-    commentsReceived,
-    commentsLoadFailed,
-    commentCreated,
-    commentCreatedRequestFailed
-} = actions;
+const { requested, received, loadFailed, created, requestFailed, deleted } =
+    actions;
 
 export const loadComments = (pageId) => async (dispatch, getState) => {
-    dispatch(commentsRequested());
+    dispatch(requested());
     try {
         const { content } = await commentsService.get(pageId);
-        dispatch(commentsReceived(content));
+        dispatch(received(content));
     } catch (error) {
-        dispatch(commentsLoadFailed(error.message));
+        dispatch(loadFailed(error.message));
+    }
+};
+
+export const deleteComment = (commentId) => async (dispatch) => {
+    try {
+        await commentsService.delete(commentId);
+        dispatch(deleted(commentId));
+    } catch (error) {
+        dispatch(requestFailed(error.message));
     }
 };
 
@@ -58,9 +67,9 @@ export const getComments = () => (state) => state.comments.entities;
 export const createComment = (comment) => async (dispatch) => {
     try {
         await commentsService.create(comment.id, comment);
-        dispatch(commentCreated(comment));
+        dispatch(created(comment));
     } catch (error) {
-        dispatch(commentCreatedRequestFailed(error.message));
+        dispatch(requestFailed(error.message));
     }
 };
 

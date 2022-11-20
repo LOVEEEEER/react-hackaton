@@ -21,4 +21,11 @@
   &__date {
     font-size: 15px;
   }
+  &__delete {
+    margin-left: auto;
+    width: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
