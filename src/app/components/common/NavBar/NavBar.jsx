@@ -5,6 +5,7 @@ import Logo from "../Logo";
 import Container from "../Container";
 
 const NavBar = () => {
+    
     const navLinks = [
         { path: "/", name: "Команда", id: 1 },
         {
@@ -36,9 +37,11 @@ const NavBar = () => {
                         </ul>
                     </nav>
                 </div>
+                <PhoneMenu links={navLinks} open={openMenu} />
             </Container>
         </header>
     );
 };
 
 export default NavBar;
+
